@@ -1,3 +1,7 @@
+output "linux_web_apps_id" {
+  description = "Map of id values across all linux_web_apps, keyed the same as var.linux_web_apps"
+  value       = { for k, v in azurerm_linux_web_app.linux_web_apps : k => v.id }
+}
 output "linux_web_apps_app_settings" {
   description = "Map of app_settings values across all linux_web_apps, keyed the same as var.linux_web_apps"
   value       = { for k, v in azurerm_linux_web_app.linux_web_apps : k => v.app_settings }
