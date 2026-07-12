@@ -328,20 +328,20 @@ EOT
             interval   = string
             time_taken = string
           }))
-          slow_request_with_path = optional(object({
+          slow_request_with_path = optional(list(object({
             count      = number
             interval   = string
             path       = optional(string)
             time_taken = string
-          }))
-          status_code = optional(object({
+          })))
+          status_code = optional(list(object({
             count             = number
             interval          = string
             path              = optional(string)
             status_code_range = string
             sub_status        = optional(number)
             win32_status_code = optional(number)
-          }))
+          })))
         }))
       }))
       container_registry_managed_identity_client_id = optional(string)
@@ -355,7 +355,7 @@ EOT
       health_check_eviction_time_in_min = optional(number)
       health_check_path                 = optional(string)
       http2_enabled                     = optional(bool) # Default: false
-      ip_restriction = optional(object({
+      ip_restriction = optional(list(object({
         action      = optional(string) # Default: "Allow"
         description = optional(string)
         headers = optional(object({
@@ -369,7 +369,7 @@ EOT
         priority                  = optional(number) # Default: 65000
         service_tag               = optional(string)
         virtual_network_subnet_id = optional(string)
-      }))
+      })))
       ip_restriction_default_action = optional(string) # Default: "Allow"
       load_balancing_mode           = optional(string) # Default: "LeastRequests"
       local_mysql_enabled           = optional(bool)   # Default: false
@@ -378,7 +378,7 @@ EOT
       minimum_tls_version           = optional(string) # Default: "1.2"
       remote_debugging_enabled      = optional(bool)   # Default: false
       remote_debugging_version      = optional(string)
-      scm_ip_restriction = optional(object({
+      scm_ip_restriction = optional(list(object({
         action      = optional(string) # Default: "Allow"
         description = optional(string)
         headers = optional(object({
@@ -392,7 +392,7 @@ EOT
         priority                  = optional(number) # Default: 65000
         service_tag               = optional(string)
         virtual_network_subnet_id = optional(string)
-      }))
+      })))
       scm_ip_restriction_default_action = optional(string) # Default: "Allow"
       scm_minimum_tls_version           = optional(string) # Default: "1.2"
       scm_use_main_ip_restriction       = optional(bool)   # Default: false
@@ -471,13 +471,13 @@ EOT
         client_id = string
       }))
       config_file_path = optional(string)
-      custom_oidc_v2 = optional(object({
+      custom_oidc_v2 = optional(list(object({
         client_id                     = string
         name                          = string
         name_claim_type               = optional(string)
         openid_configuration_endpoint = string
         scopes                        = optional(list(string))
-      }))
+      })))
       default_provider = optional(string)
       excluded_paths   = optional(list(string))
       facebook_v2 = optional(object({
@@ -541,11 +541,11 @@ EOT
       })
       storage_account_url = string
     }))
-    connection_string = optional(object({
+    connection_string = optional(list(object({
       name  = string
       type  = string
       value = string
-    }))
+    })))
     identity = optional(object({
       identity_ids = optional(set(string))
       type         = string
@@ -576,14 +576,14 @@ EOT
       app_setting_names       = optional(list(string))
       connection_string_names = optional(list(string))
     }))
-    storage_account = optional(object({
+    storage_account = optional(list(object({
       access_key   = string
       account_name = string
       mount_path   = optional(string)
       name         = string
       share_name   = string
       type         = string
-    }))
+    })))
   }))
 }
 
