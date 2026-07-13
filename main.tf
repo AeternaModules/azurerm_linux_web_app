@@ -117,7 +117,7 @@ resource "azurerm_linux_web_app" "linux_web_apps" {
         action      = ip_restriction.value.action
         description = ip_restriction.value.description
         dynamic "headers" {
-          for_each = ip_restriction.value.headers != null ? [ip_restriction.value.headers] : []
+          for_each = ip_restriction.value.headers != null ? ip_restriction.value.headers : []
           content {
             x_azure_fdid      = headers.value.x_azure_fdid
             x_fd_health_probe = headers.value.x_fd_health_probe
@@ -146,7 +146,7 @@ resource "azurerm_linux_web_app" "linux_web_apps" {
         action      = scm_ip_restriction.value.action
         description = scm_ip_restriction.value.description
         dynamic "headers" {
-          for_each = scm_ip_restriction.value.headers != null ? [scm_ip_restriction.value.headers] : []
+          for_each = scm_ip_restriction.value.headers != null ? scm_ip_restriction.value.headers : []
           content {
             x_azure_fdid      = headers.value.x_azure_fdid
             x_fd_health_probe = headers.value.x_fd_health_probe
