@@ -24,7 +24,6 @@ Required:
             - node_version (optional)
             - php_version (optional)
             - python_version (optional)
-            - ruby_version (optional)
         - auto_heal_setting (optional, block):
             - action (optional, block):
                 - action_type (required)
@@ -311,7 +310,6 @@ EOT
         node_version             = optional(string)
         php_version              = optional(string)
         python_version           = optional(string)
-        ruby_version             = optional(string)
       }))
       auto_heal_setting = optional(object({
         action = optional(object({
