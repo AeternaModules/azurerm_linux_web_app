@@ -8,16 +8,16 @@ output "linux_web_apps_app_settings" {
 }
 output "linux_web_apps_auth_settings" {
   description = "Map of auth_settings values across all linux_web_apps, keyed the same as var.linux_web_apps"
-  value       = { for k, v in azurerm_linux_web_app.linux_web_apps : k => v.auth_settings if v.auth_settings != null && length(v.auth_settings) > 0 }
+  value       = { for k, v in azurerm_linux_web_app.linux_web_apps : k => one(v.auth_settings) if v.auth_settings != null && length(v.auth_settings) > 0 }
   sensitive   = true
 }
 output "linux_web_apps_auth_settings_v2" {
   description = "Map of auth_settings_v2 values across all linux_web_apps, keyed the same as var.linux_web_apps"
-  value       = { for k, v in azurerm_linux_web_app.linux_web_apps : k => v.auth_settings_v2 if v.auth_settings_v2 != null && length(v.auth_settings_v2) > 0 }
+  value       = { for k, v in azurerm_linux_web_app.linux_web_apps : k => one(v.auth_settings_v2) if v.auth_settings_v2 != null && length(v.auth_settings_v2) > 0 }
 }
 output "linux_web_apps_backup" {
   description = "Map of backup values across all linux_web_apps, keyed the same as var.linux_web_apps"
-  value       = { for k, v in azurerm_linux_web_app.linux_web_apps : k => v.backup if v.backup != null && length(v.backup) > 0 }
+  value       = { for k, v in azurerm_linux_web_app.linux_web_apps : k => one(v.backup) if v.backup != null && length(v.backup) > 0 }
   sensitive   = true
 }
 output "linux_web_apps_client_affinity_enabled" {
@@ -68,7 +68,7 @@ output "linux_web_apps_https_only" {
 }
 output "linux_web_apps_identity" {
   description = "Map of identity values across all linux_web_apps, keyed the same as var.linux_web_apps"
-  value       = { for k, v in azurerm_linux_web_app.linux_web_apps : k => v.identity if v.identity != null && length(v.identity) > 0 }
+  value       = { for k, v in azurerm_linux_web_app.linux_web_apps : k => one(v.identity) if v.identity != null && length(v.identity) > 0 }
 }
 output "linux_web_apps_key_vault_reference_identity_id" {
   description = "Map of key_vault_reference_identity_id values across all linux_web_apps, keyed the same as var.linux_web_apps"
@@ -84,7 +84,7 @@ output "linux_web_apps_location" {
 }
 output "linux_web_apps_logs" {
   description = "Map of logs values across all linux_web_apps, keyed the same as var.linux_web_apps"
-  value       = { for k, v in azurerm_linux_web_app.linux_web_apps : k => v.logs if v.logs != null && length(v.logs) > 0 }
+  value       = { for k, v in azurerm_linux_web_app.linux_web_apps : k => one(v.logs) if v.logs != null && length(v.logs) > 0 }
   sensitive   = true
 }
 output "linux_web_apps_name" {
@@ -121,7 +121,7 @@ output "linux_web_apps_service_plan_id" {
 }
 output "linux_web_apps_site_config" {
   description = "Map of site_config values across all linux_web_apps, keyed the same as var.linux_web_apps"
-  value       = { for k, v in azurerm_linux_web_app.linux_web_apps : k => v.site_config if v.site_config != null && length(v.site_config) > 0 }
+  value       = { for k, v in azurerm_linux_web_app.linux_web_apps : k => one(v.site_config) if v.site_config != null && length(v.site_config) > 0 }
   sensitive   = true
 }
 output "linux_web_apps_site_credential" {
@@ -131,7 +131,7 @@ output "linux_web_apps_site_credential" {
 }
 output "linux_web_apps_sticky_settings" {
   description = "Map of sticky_settings values across all linux_web_apps, keyed the same as var.linux_web_apps"
-  value       = { for k, v in azurerm_linux_web_app.linux_web_apps : k => v.sticky_settings if v.sticky_settings != null && length(v.sticky_settings) > 0 }
+  value       = { for k, v in azurerm_linux_web_app.linux_web_apps : k => one(v.sticky_settings) if v.sticky_settings != null && length(v.sticky_settings) > 0 }
 }
 output "linux_web_apps_storage_account" {
   description = "Map of storage_account values across all linux_web_apps, keyed the same as var.linux_web_apps"
